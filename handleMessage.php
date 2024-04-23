@@ -1,23 +1,20 @@
 <?php
-$host = 'localhost';
-$port = '5432';
-$dbname = 'Projet';
-$user = 'postgres';
-$password = '';
-
-// Connexion à la base de données
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password";
-$pdo = new PDO($dsn);
+include 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $sender = $_POST['sender'];
-    $receiver = $_POST['receiver'];
-    $content = $_POST['message'];
+    $sender = pg_escape_string($dbconn, $_POST['sender']);
+    $receiver = pg_escape_string($dbconn, $_POST['receiver']);
+    $content = pg_escape_string($dbconn, $_POST['message']);
 
-    $sql = "INSERT INTO message (contenu_message, date_d_envoie, id_utilisateur, id_utilisateur_1) VALUES (?, now(), ?, ?)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$content, $sender, $receiver]);
-
-    echo "Message envoyé avec succès.";
+    $sql = "INSERT INTO message (contenu_message, date_d_envoie, id_utilisateur, id_utilisateur_1) VALUES ('$content', now(), '$sender', '$receiver')";
+    $result = pg_query($dbconn, $sql);
+    
+    if (!$result) {
+        echo "An error occurred.\n";
+    } else {
+        echo "Message sent successfully.";
+    }
 }
+
+pg_close($dbconn);
 ?>
