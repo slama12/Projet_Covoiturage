@@ -28,10 +28,6 @@ CREATE TABLE Vehicule (
     FOREIGN KEY (ID_Trajet) REFERENCES Trajet(ID_Trajet)
 );
 
-INSERT INTO role(id_role, libellerole) VALUES (1, 'Administrateur');
-INSERT INTO role(id_role, libellerole) VALUES (2, 'Chauffeur');
-INSERT INTO role(id_role, libellerole) VALUES (3, 'Membre');
-
 CREATE TABLE Avis (
     ID_Avis SERIAL PRIMARY KEY,
     date_avis TIMESTAMP,
@@ -98,3 +94,7 @@ CREATE TABLE Reserve (
     FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur(ID_Utilisateur),
     FOREIGN KEY (ID_Trajet) REFERENCES Trajet(ID_Trajet)
 );
+
+INSERT INTO role(id_role, libellerole) VALUES (1, 'Administrateur');
+INSERT INTO role(id_role, libellerole) VALUES (2, 'Chauffeur');
+INSERT INTO role(id_role, libellerole) VALUES (3, 'Membre');
