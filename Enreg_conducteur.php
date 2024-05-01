@@ -1,7 +1,5 @@
 <?php
 session_start();
-include_once "config/db.php";
-
 $message = ""; // Initialisez le message vide
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
