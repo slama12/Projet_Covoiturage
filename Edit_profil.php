@@ -1,13 +1,10 @@
 <?php
 session_start();
 // Vérifier si l'utilisateur est connecté,sinon le rediriger vers la page de connexion 
-if(!isset($_SESSION['user_id'])) {
+if(!isset($_SESSION['id_utilisateur'])) {
     header("Location: login.php");
     exit;
 }
-
-// Inclure le fichier de configuration de la base de données
-include_once "config/db.php";
 
 // Récupérer les informations de l'utilisateur à partir de la base de données
 $id_utilisateur = $_SESSION['id_utilisateur'];
