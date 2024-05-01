@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un conducteur</title>
+</head>
+<body>
+    <h1>Ajouter un conducteur</h1>
+    <?php if (!empty($message)): ?>
+        <p><?php echo $message; ?></p>
+    <?php endif; ?>
+    <form action="" method="post">
+        <label for="nom">Nom:</label><br>
+        <input type="text" id="nom" name="nom" required><br>
+        
+        <label for="prenom">Prénom:</label><br>
+        <input type="text" id="prenom" name="prenom" required><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="telephone">Numéro de téléphone:</label><br>
+        <input type="text" id="telephone" name="telephone" required><br>
+        
+        <label for="marque_vehicule">Marque de véhicule:</label><br>
+        <input type="text" id="marque_vehicule" name="marque_vehicule" required><br>
+        
+        <label for="modele_vehicule">Modèle de véhicule:</label><br>
+        <input type="text" id="modele_vehicule" name="modele_vehicule" required><br>
+        
+        <input type="submit" value="Enregistrer le conducteur">
+    </form>
+</body>
+</html>
