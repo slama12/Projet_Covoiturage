@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'src/db_connect.php';
+include 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = pg_escape_string($dbconn, $_POST['username']);
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
     // Fetch user from the database
@@ -11,12 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = pg_query($dbconn, $query);
     $user = pg_fetch_assoc($result);
 
-    if ($user && password_verify($password, $user['Mot_de_Passe'])) {
-        $_SESSION['user_id'] = $user['ID_Utilisateur'];
+    if ($user && password_verify($password, $user['mot_de_passe'])) {
+        $_SESSION['user_id'] = $user['id_utilisateur'];
         echo "Login successful. Welcome, " . htmlspecialchars($username) . "!";
         // Redirect to dashboard or home page
-        // header("Location: dashboard.php");
-        // exit();
+        header("Location: dashboard.php");
+        exit();
     } else {
         echo "Invalid username or password.";
     }
