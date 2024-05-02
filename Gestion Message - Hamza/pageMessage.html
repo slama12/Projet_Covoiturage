@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Envoyer un Message</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Envoyer un Message</h1>
+    <form id="messageForm">
+        <label for="sender">Expéditeur:</label>
+        <select id="sender" name="sender" required onchange="showSenderInfo()"></select><br><br>
+        <div id="senderInfo"></div><br>
+
+        <label for="receiver">Destinataire:</label>
+        <select id="receiver" name="receiver" required></select><br><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br><br>
+
+        <input type="button" value="Envoyer" onclick="sendMessage()">
+    </form>
+
+    <div id="messages"></div>
+
+    <script>
+        // Function to send the message
+        function sendMessage() {
+            var senderInfo = $('#sender option:selected').text() + " (" + $('#sender option:selected').data('role') + ")";
+            $.post('handleMessage.php', $('#messageForm').serialize(), function(data) {
+                $('#messages').prepend("<p><strong>" + new Date().toLocaleTimeString() + " - " + senderInfo + ":</strong> " + $('#message').val() + "</p>");
+                $('#message').val(''); // Clear the message input after sending
+            });
+        }
+
+        // Load users and append them to sender and receiver selects
+        function loadUsers() {
+            $.get('getUsers.php', function(data) {
+                $('#sender, #receiver').empty();
+                data.forEach(function(user) {
+                    let option = $('<option>', {
+                        value: user.id,
+                        text: user.name,
+                        'data-role': user.role
+                    });
+                    $('#sender, #receiver').append(option);
+                });
+            }, 'json');
+        }
+
+        // Display the sender's information when a new sender is selected
+        function showSenderInfo() {
+            let selected = $('#sender option:selected');
+            let role = selected.data('role');
+            $('#senderInfo').text(`Rôle : ${role}`);
+        }
+
+        // Initialize on page load
+        $(document).ready(function() {
+            loadUsers();
+        });
+    </script>
+</body>
+</html>
