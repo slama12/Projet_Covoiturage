@@ -1,5 +1,5 @@
 <?php
-include 'src/db_connect.php';
+include '../bd/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve data from form
