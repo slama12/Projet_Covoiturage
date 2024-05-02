@@ -1,0 +1,93 @@
+# IIoT Lab 2
+## Partie 1 : Authentifier une requête RESTful
+## Étape 1 : Les 4 méthodes d’authentification
+## Étape 2 : Obtenir une clé API Mattermost
+## Étape 3 : Première requête en ligne de commande avec curl
+````powershell
+02:39:29 etu@rpi4-04 ~ → curl -i -H 'Authorization: Bearer 5qtojz5rtbgn9g5i1w8gih8ruh' \
+> https://mattermost.inetdoc.net/api/v4/users/me
+HTTP/2 200
+x-frame-options: sameorigin
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin
+set-cookie: flavor=choco; Secure; HttpOnly; SameSite=Strict
+content-type: application/json
+etag: 9.6.1.nfpn9zw887gi98uyuxn1n6e3ny.1713851877834..0.true.true.0
+expires: 0
+permissions-policy:
+referrer-policy: no-referrer
+vary: Accept-Encoding
+x-content-type-options: nosniff
+x-request-id: 5gf3cc8wwtn7mgj9a35bam8wuo
+x-version-id: 9.6.1.8390314674.96282f1cfca2a3212d078cd29a9e9bbf.false
+date: Mon, 29 Apr 2024 12:41:17 GMT
+content-length: 801
+via: 2.0 mattermost.inetdoc.net
+content-security-policy: frame-ancestors 'self'
+server: Apache/2.4.59 (Debian)
+
+{"id":"nfpn9zw887gi98uyuxn1n6e3ny","create_at":1700835349980,"update_at":1713851877834,"delete_at":0,"username":"mohamed1482001","auth_data":"","auth_service":"gitlab","email":"mohamed1482001@gmail.com","email_verified":true,"nickname":"","first_name":"Mohamed","last_name":"Slama","position":"","roles":"system_user system_user_access_token system_post_all_public","notify_props":{"channel":"true","comments":"never","desktop":"mention","desktop_sound":"true","desktop_threads":"all","email":"true","email_threads":"all","first_name":"false","mention_keys":"","push":"mention","push_status":"away","push_threads":"all"},"last_password_update":1700835349980,"locale":"fr","timezone":{"automaticTimezone":"Europe/Paris","manualTimezone":"","useAutomaticTimezone":"true"},"disable_welcome_email":false}
+````
+## Partie 2 : Introduction à Postman
+## Étape 1 : Accéder au service Postman
+# Utiliser une copie de la machine virtuelle Ubuntu Desktop
+````Powershell
+mohamedslama@oscar:~/vm$ ./scripts/ovs-startup.sh debian-testing-amd64.qcow2 1024 2
+~> Virtual machine filename   : debian-testing-amd64.qcow2
+~> RAM size                   : 1024MB
+~> SPICE VDI port number      : 5902
+~> telnet console port number : 2302
+~> MAC address                : b8:ad:ca:fe:00:02
+~> Switch port interface      : tap2, access mode
+~> IPv6 LL address            : fe80::baad:caff:fefe:2%vlan60
+````
+# Liste des abonnements utilisateur Mattermost - équipes et canaux
+````Powershell
+{
+    "id": "nfpn9zw887gi98uyuxn1n6e3ny",
+    "create_at": 1700835349980,
+    "update_at": 1713851877834,
+    "delete_at": 0,
+    "username": "mohamed1482001",
+    "auth_data": "",
+    "auth_service": "gitlab",
+    "email": "mohamed1482001@gmail.com",
+    "email_verified": true,
+    "nickname": "",
+    "first_name": "Mohamed",
+    "last_name": "Slama",
+    "position": "",
+    "roles": "system_user system_user_access_token system_post_all_public",
+    "notify_props": {
+        "channel": "true",
+        "comments": "never",
+        "desktop": "mention",
+        "desktop_sound": "true",
+        "desktop_threads": "all",
+        "email": "true",
+        "email_threads": "all",
+        "first_name": "false",
+        "mention_keys": "",
+        "push": "mention",
+        "push_status": "away",
+        "push_threads": "all"
+    },
+    "last_password_update": 1700835349980,
+    "locale": "fr",
+    "timezone": {
+        "automaticTimezone": "Europe/Paris",
+        "manualTimezone": "",
+        "useAutomaticTimezone": "true"
+    },
+    "disable_welcome_email": false
+}
+````
+## Partie 3 : Un premier flux de développement Postman
+# Flux de développement - Copie d'écran avec l'ensemble des relations entre blocs
+
+## Partie 4 : Poster des messages dans un canal Mattermost
+# Étape 1 : Poster un message texte simple sur Mattermost
+
+# Étape 2 : Poster un message avec “pièce jointe”
+
+Poster un message sur Mattermost - Lien vers le message avec pièce jointe au choix
