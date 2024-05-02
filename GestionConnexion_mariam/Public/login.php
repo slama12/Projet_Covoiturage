@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['id_utilisateur'];
         echo "Login successful. Welcome, " . htmlspecialchars($username) . "!";
         // Redirect to dashboard or home page
-        header("Location: dashboard.php");
+        header("Location: index.php");
         exit();
     } else {
         echo "Invalid username or password.";
@@ -24,3 +24,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     pg_close($dbconn);
 }
 ?>
+
