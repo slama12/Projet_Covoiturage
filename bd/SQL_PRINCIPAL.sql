@@ -4,9 +4,8 @@ CREATE TABLE Utilisateur (
     Prenom_Utilisateur CHAR(15),
     Adresse_EMail VARCHAR(75),
     Mot_de_Passe VARCHAR(100),
-    Numero_Telephone SMALLINT
+    Numero_Telephone VARCHAR(20)
 );
-
 CREATE TABLE Trajet (
     ID_Trajet SERIAL PRIMARY KEY,
     heure_depart TIME,
@@ -77,6 +76,7 @@ CREATE TABLE Affecte (
     FOREIGN KEY (ID_Role) REFERENCES Role(ID_Role)
 );
 
+
 CREATE TABLE Comprend (
     ID_Trajet INTEGER,
     nom_arret VARCHAR(50),
@@ -94,7 +94,3 @@ CREATE TABLE Reserve (
     FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur(ID_Utilisateur),
     FOREIGN KEY (ID_Trajet) REFERENCES Trajet(ID_Trajet)
 );
-
-INSERT INTO role(id_role, libellerole) VALUES (1, 'Administrateur');
-INSERT INTO role(id_role, libellerole) VALUES (2, 'Chauffeur');
-INSERT INTO role(id_role, libellerole) VALUES (3, 'Membre');
