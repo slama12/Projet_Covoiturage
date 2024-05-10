@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="login.css"> <!-- Ensure this CSS file includes your styles for forms and buttons -->
+</head>
+<body>
+    <div class="overlay">
+        <form action="reset_password_page.php" method="POST">
+            <div class="con">
+                <header class="head-form">
+                    <h2>Forgot Password</h2>
+                    <p>Enter your details below to reset your password.</p>
+                </header>
+                <div class="field-set">
+                    <!-- First Name Input-->
+                    <span class="input-item">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" name="prenom" type="text" placeholder="First Name" required>
+                    <br>
+                    <!-- Last Name Input-->
+                    <span class="input-item">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" name="nom" type="text" placeholder="Last Name" required>
+                    <br>
+                    <!-- Email Input-->
+                    <span class="input-item">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" name="email" type="email" placeholder="Email Address" required>
+                    <br>
+                    <!-- Submit Button -->
+                    <button class="log-in" type="submit">Reset Password</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="login.js"></script> <!-- Ensure this script handles any dynamic elements like password visibility toggle -->
+</body>
+</html>

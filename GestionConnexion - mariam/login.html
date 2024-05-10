@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register_login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+
+<body>
+
+    <div class="overlay">
+        <form action="signUp_signIn.php" method="POST">
+            <!--   con = Container  for items in the form-->
+            <div class="con">
+                <header class="head-form">
+                    <h2>Log In</h2>
+                    <!--     A welcome message or an explanation of the login form -->
+                    <p>login here using your username and password</p>
+                </header>
+                <!--     End  header Content  -->
+                <br>
+                <div class="field-set">
+
+                    <!--   user name -->
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <!--   user name Input-->
+                    <input class="form-input" id="txt-input" name="email" type="text" placeholder="@Email" required>
+                    <br>
+
+                    <!--   Password -->
+
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <!--   Password Input-->
+                    <input class="form-input" type="password" placeholder="Password" id="pwd" name="password" required>
+                    <span>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                    </span>
+
+
+                    <br>
+                    <!--        buttons -->
+                    <!--      button LogIn -->
+                    <button class="log-in" type="submit" name="login">Log In</button>
+                </div>
+
+                <!--   other buttons -->
+                <div class="other">
+                    <!--      Forgot Password button-->
+                    <button class="btn submits frgt-pass" onclick="location.href='forgotPass.html';">Forgot Password</button>
+                    <!--     Sign Up button -->
+                    <button class="btn submits sign-up" onclick="location.href='signUp.html';">Sign Up 
+                        <!--         Sign Up font icon -->
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </button>
+                    <!--      End Other the Division -->
+                </div>
+
+                <!--   End Conrainer  -->
+            </div>
+
+            <!-- End Form -->
+        </form>
+    </div>
+
+
+    <script src="login.js"></script>
+</body>
+
+</html>
