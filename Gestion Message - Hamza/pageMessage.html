@@ -6,6 +6,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <div id="menu-container"></div>
+    <script>
+    window.onload = function() {
+      fetch('menuBar.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('menu-container').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading the menu:', error));
+    };
+    </script>
+
     <h1>Envoyer un Message</h1>
     <form id="messageForm">
         <label for="sender">Expéditeur:</label>
