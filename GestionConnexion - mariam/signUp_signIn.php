@@ -4,8 +4,8 @@ include '../bd/db_connect.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["signup"])) {
         // Retrieve data from form
-        $username = pg_escape_string($dbconn, $_POST['username']);
-        $firstname = pg_escape_string($dbconn, $_POST['firstname']);
+        $username = pg_escape_string($dbconn, $_POST['nom']);
+        $firstname = pg_escape_string($dbconn, $_POST['prenom']);
         $email = pg_escape_string($dbconn, $_POST['email']);
         $password = pg_escape_string($dbconn, $_POST['password']);
         // Hash password

@@ -13,8 +13,9 @@
 
 /* Start body rules */
 body {
-    background-image: linear-gradient(-225deg, #fafde3 0%, #a8edea 100%);
-    background-image: linear-gradient(to top, #78ffd6 0%, #a8edea 100%);
+    /* background-image: linear-gradient(-225deg, #045602 0%, #f68139 100%); 
+    background-image: linear-gradient(to top, #00796b 0%, #004d40 100%); /* Deep green gradient */
+   background-color: white;
     background-attachment: fixed;
     background-repeat: no-repeat;
 
@@ -42,7 +43,7 @@ form {
     margin: 2% auto;
     box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
     padding: 2%;
-    background-image: linear-gradient(-225deg, #78e4ff 50%, #a8edea 50%);
+    background-image: linear-gradient(-225deg, #2154f9 50%, #e3ff2b 50%);
 }
 
 /* form Container */

@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +9,22 @@
     <meta charset="UTF-8">
     <title>Register_login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="login.css"> 
-  
+    <!-- <link rel="stylesheet" href="login.css">  -->
 </head>
 
 <body>
+ 
+    <div id="menu-container"></div>
+    <script>
+    window.onload = function() {
+      fetch('menuBar.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('menu-container').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading the menu:', error));
+    };
+    </script>
     
 
     <div class="overlay">
