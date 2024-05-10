@@ -1,43 +1,22 @@
 <?php
 session_start();
+// Récupérer les données du formulaire
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$email = $_POST['email'];
+$telephone = $_POST['telephone'];
 
-// Vérifier si les données du formulaire ont été soumises
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
-    $nom = isset($_POST['nom']) ? $_POST['nom'] : '';
-    $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : '';
+// Récupérer l'identifiant de l'utilisateur
+$utilisateur_id = $_SESSION['id'];
 
-    // Vérifier si $_SESSION['id'] est défini
-    if (isset($_SESSION['id'])) {
-        $utilisateur_id = $_SESSION['id'];
+// Mettre à jour les informations de l'utilisateur dans la base de données
+$query = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ?, telephone = ? WHERE id = ?";
+$stmt = $pdo->prepare($query);
+$stmt->execute([$nom, $prenom, $email, $telephone, $utilisateur_id]);
 
-        // Vérifier si la connexion PDO est définie
-        if (isset($pdo)) {
-            // Mettre à jour les informations de l'utilisateur dans la base de données
-            $query = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ?, telephone = ? WHERE id = ?";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute([$nom, $prenom, $email, $telephone, $utilisateur_id]);
-
-            // Rediriger l'utilisateur vers une page de confirmation
-            header("Location: confirmation.php");
-            exit;
-        } else {
-            ?>
-            Erreur: La connexion PDO n'est pas définie.
-            <?php
-        }
-    } else {
-        ?>
-        Erreur: $_SESSION['id'] n'est pas défini.
-        <?php
-    }
-} else {
-    ?>
-    Erreur: Les données du formulaire n'ont pas été soumises.
-    <?php
-}
+// Rediriger l'utilisateur vers une page de confirmation
+header("Location: confirmation.php");
+exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">
