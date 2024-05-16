@@ -32,19 +32,19 @@
                     <!-- Password -->
                     <span class="input-item">
                         <i class="fa fa-lock"></i>
-                    </span>
+                        </span>
                     <input class="form-input" type="password" placeholder="New Password" id="new_password" name="new_password" required>
                     <span>
-                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye" onclick="togglePassword('new_password', 'eye')"></i>
                     </span>
                     <br>
                     <!-- Confirm Password -->
                     <span class="input-item">
                         <i class="fa fa-lock"></i>
-                    </span>
+                        </span>
                     <input class="form-input" type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required>
                     <span>
-                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye" onclick="togglePassword('confirm_password', 'eye')"></i>
                     </span>
                     <br>
                     <!-- Submit Button -->
