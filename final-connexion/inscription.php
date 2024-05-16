@@ -47,12 +47,13 @@
                     <input class="form-input" id="txt-input" name="phone" type="text" placeholder="Phone" required>
                     <br>
                     <!--Email -->
-                    <span class="input-item">
+                    <input type="hidden" name="email" value= "<?php echo htmlspecialchars($_GET['email']); ?>">
+                    <!-- <span class="input-item">
                         <i class="fa fa-envelope"></i>
-                    </span>
+                    </span> -->
                     <!--Email Input-->
-                    <input class="form-input" id="txt-input" name="email" type="text" placeholder="@Email" required>
-                    <br>
+                    <!-- <input class="form-input" id="txt-input" name="email" type="text" placeholder="@Email" required>
+                    <br> -->
                     <!-- Password -->
                     <span class="input-item">
                         <i class="fa fa-lock"></i>
@@ -65,7 +66,7 @@
                     <br>
                     <!-- Submit Button -->
                     <!-- <button class="submit-button" type="submit">Reset Password</button> -->
-                    <button class="submit-button">Valider</button>
+                    <button class="submit-button" type="submit" name="signup" >Valider</button>
                 </div>
             </div>
         </form>

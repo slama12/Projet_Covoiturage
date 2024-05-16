@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Réinitialisation du mot de passe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="menu.css"> <!-- Link to your existing menu bar CSS file -->
-    <link rel="stylesheet" href="style.css"> <!-- Link to the new login page CSS file -->
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="menu-container"></div>
@@ -21,29 +21,28 @@
     </script>
 
     <div class="overlay">
-        <form action="reset_password_page.php" method="POST">
+        <form action="reset_password.php" method="POST">
             <div class="con">
                 <header class="head-form">
                     <h2>Changez votre mot de passe</h2>
                     <p>Veuillez saisir un nouveau mot de passe pour le modifier.</p>
                 </header>
                 <div class="field-set">
+                    <input type="hidden" name="email" value= "<?php echo htmlspecialchars($_GET['email']); ?>">
                     <!-- Password -->
                     <span class="input-item">
                         <i class="fa fa-lock"></i>
                     </span>
-                    <!-- Password Input-->
-                    <input class="form-input" type="password" placeholder="New Password" id="pwd" name="password" required>
+                    <input class="form-input" type="password" placeholder="New Password" id="new_password" name="new_password" required>
                     <span>
                         <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
                     </span>
                     <br>
-                    <!-- confirm Password -->
+                    <!-- Confirm Password -->
                     <span class="input-item">
                         <i class="fa fa-lock"></i>
                     </span>
-                    <!-- Password Input-->
-                    <input class="form-input" type="password" placeholder="Confirm Password" id="pwd" name="password" required>
+                    <input class="form-input" type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required>
                     <span>
                         <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
                     </span>
@@ -54,6 +53,6 @@
             </div>
         </form>
     </div>
-    <script src="script.js"></script> <!-- Ensure this script handles any dynamic elements like password visibility toggle -->
+    <script src="script.js"></script>
 </body>
 </html>

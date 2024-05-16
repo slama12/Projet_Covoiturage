@@ -2,7 +2,24 @@
 include '../bd/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST["signup"])) {
+    if (isset($_POST["verif_email"])) {
+        $email = pg_escape_string($dbconn, $_POST['txt-email']);
+        // Vérifier si l'email existe dans la base de données
+        $query = "SELECT * FROM Utilisateur WHERE Adresse_EMail = $1";
+        $result = pg_query_params($dbconn, $query, array($email));
+
+        if (pg_num_rows($result) === 0) {
+            // Rediriger vers la page de réinitialisation du mot de passe avec l'email en paramètre
+            header("Location: inscription.php?email=" . urlencode($email));
+            exit();
+        } else {
+            echo "Ce email existe deja.";
+        }
+        pg_free_result($result);
+        pg_close($dbconn);
+    }
+
+    elseif (isset($_POST["signup"])) {
         // Retrieve data from form
         $username = pg_escape_string($dbconn, $_POST['nom']);
         $firstname = pg_escape_string($dbconn, $_POST['prenom']);
@@ -22,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error: " . pg_last_error($dbconn);
         }
 
-
         pg_close($dbconn);
+
     } elseif (isset($_POST["login"])) {
         $email = pg_escape_string($dbconn, $_POST['email']);
         $password = $_POST['password'];
@@ -41,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // header("Location: dashboard.php");
             // exit();
         } else {
-            echo "<script>alert('Invalid username or password.'); window.location='login.html'</script>";
+            echo "<script>alert('Invalid username or password.'); window.location='connexion.html'</script>";
         }
 
         pg_close($dbconn);
