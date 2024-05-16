@@ -2,91 +2,77 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-    <title>Register_login</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="inscr.css"> 
+    <link rel="stylesheet" href="menu.css"> <!-- Link to your existing menu bar CSS file -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to the new login page CSS file -->
 </head>
 
 <body>
- 
-    <!-- <div id="menu-container">
-        <script>
-        window.onload = function() {
-          fetch('menuBar.html')
-            .then(response => response.text())
-            .then(html => {
-              document.getElementById('menu-container').innerHTML = html;
-            })
-            .catch(error => console.error('Error loading the menu:', error));
+    <div id="menu-container"></div>
+    <script>
+        window.onload = function () {
+            fetch('menuBar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('menu-container').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading the menu:', error));
         };
-        </script>
-        </div> -->
-    
-    
+    </script>
 
     <div class="overlay">
-        <form action="signUp_signIn.php" method="POST">
+        <form action="c_compte.php" method="POST">
             <!--   con = Container  for items in the form-->
             <div class="con">
                 <header class="head-form">
-                    <h2>Log In</h2>
-                    <!--     A welcome message or an explanation of the login form -->
-                    <p>login here using your username and password</p>
+                    <h2>Connexion</h2>
+                    <p>Connectez-vous ici avec votre email et votre mot de passe</p>
                 </header>
                 <!--     End  header Content  -->
                 <br>
                 <div class="field-set">
-
-                    <!--   user name -->
+                    <!--Email -->
                     <span class="input-item">
-                        <i class="fa fa-user-circle"></i>
+                        <i class="fa fa-envelope"></i>
                     </span>
-                    <!--   user name Input-->
+                    <!--Email Input-->
                     <input class="form-input" id="txt-input" name="email" type="text" placeholder="@Email" required>
                     <br>
-
-                    <!--   Password -->
-
+                    <!--Password -->
                     <span class="input-item">
                         <i class="fa fa-key"></i>
                     </span>
-                    <!--   Password Input-->
+                    <!--Password Input-->
                     <input class="form-input" type="password" placeholder="Password" id="pwd" name="password" required>
                     <span>
                         <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
                     </span>
-
-
                     <br>
-                    <!--        buttons -->
-                    <!--      button LogIn -->
-                    <button class="log-in" type="submit" name="login">Log In</button>
+                    <!-- buttons -->
+                    <!-- button LogIn -->
+                    <button class="submit-button" type="submit" name="login">Connexion</button>
                 </div>
-
                 <!--   other buttons -->
                 <div class="other">
                     <!--      Forgot Password button-->
-                    <button class="btn submits frgt-pass" onclick="location.href='forgotPass.html';">Forgot
-                        Password</button>
+                    <button class="btn submits left" onclick="location.href='mot_de_passe.html';">Mot de passe
+                        oublié</button>
                     <!--     Sign Up button -->
-                    <button class="btn submits sign-up" onclick="location.href='signUp.html';">Sign Up
+                    <button class="btn submits right" onclick="location.href='inscription.html';">S'inscrire
                         <!--         Sign Up font icon -->
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                     </button>
                     <!--      End Other the Division -->
                 </div>
-
                 <!--   End Conrainer  -->
             </div>
-
             <!-- End Form -->
         </form>
     </div>
 
-
-    <script src="login.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

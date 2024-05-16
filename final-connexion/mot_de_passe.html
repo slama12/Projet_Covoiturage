@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="menu.css"> <!-- Link to your existing menu bar CSS file -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to the new login page CSS file -->
+</head>
+<body>
+    <div id="menu-container"></div>
+    <script>
+        window.onload = function() {
+            fetch('menuBar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('menu-container').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading the menu:', error));
+        };
+    </script>
+
+    <div class="overlay">
+        <form action="reset_password_page.php" method="POST">
+            <div class="con">
+                <header class="head-form">
+                    <h2>Avez-vous oublié votre mot de passe ?</h2>
+                    <p>Veuillez saisir votre e-mail pour que nous puissions vous aider.</p>
+                </header>
+                <div class="field-set">
+                    <!-- Email Input-->
+                    <span class="input-item">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <input class="form-input" id="txt-email" name="email" type="email" placeholder="Email Address" required>
+                    <br>
+                    <!-- Submit Button -->
+                    <!-- <button class="submit-button" type="submit">Reset Password</button> -->
+                    <button class="submit-button" name="password" onclick="location.href='new_pwd.html';">Valider</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script> <!-- Ensure this script handles any dynamic elements like password visibility toggle -->
+</body>
+</html>
